@@ -41,10 +41,13 @@ app.controller('ZippoController', function ($scope, $http, zippoService) {
 					},
 					zoom: 10
 				};
-				$scope.markers =[ {
-					latitude: parseFloat(data.places[0].latitude),
-					longitude: parseFloat(data.places[0].longitude)
-				}];
+				$scope.markers = [];
+				for (var i = data.places.length - 1; i >= 0; i--) {
+					$scope.markers.push({
+						latitude: parseFloat(data.places[i].latitude),
+						longitude: parseFloat(data.places[i].longitude)
+					});
+				}
 				$scope.cn = '';
 				$scope.zipcode = '';
 			}).
