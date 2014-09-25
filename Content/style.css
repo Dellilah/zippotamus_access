@@ -1,0 +1,15 @@
+.result{
+	width: 600px;
+	float: left;
+}
+
+th, td{
+	text-align: left;
+	padding-bottom: 15px;
+	padding-right: 10px;
+}
+
+.angular-google-map-container { 
+	height: 400px; 
+	width: 600px;
+}

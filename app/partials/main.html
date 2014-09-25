@@ -1,0 +1,29 @@
+<div class="container">
+	O kraju ... 
+	<select data-ng-model="cn" data-ng-options="country.name for country in supported_countries"></select>
+	<br><span class="advice">Zakres kodów: {{cn.range}}</span>
+	<br>
+	i kodzie pocztowym...
+	<input type="text" data-ng-model="zipcode">
+	<br><button data-ng-click="findInfo()">	...powiedz mi wszystko!</button>
+	<br><br>
+	<div class="result">
+		<table>
+			<tr><th>Kod pocztowy</th><td>{{result["post code"]}}</td></tr>
+			<tr><th>Kraj</th><td>{{result["country"]}}</td></tr>
+			<tr><th>Skrótowa n. kraju</th><td>{{result["country abbreviation"]}}</td></tr>
+			<tr><th>Nazwa Regionu</th><td>{{result.places[0]["place name"]}}</td></tr>
+			<tr><th>Stan</th><td>{{result.places[0]["state"]}}</td></tr>
+			<tr><th>Skrótowa n. stanu</th><td>{{result.places[0]["state abbreviation"]}}</td></tr>
+			<tr><th>Dlugość geograficzna</th><td>{{result.places[0]["longitude"]}}</td></tr>
+			<tr><th>Szerokość geograficzna</th><td>{{result.places[0]["latitude"]}}</td></tr>
+		</table>
+	</div>
+	<div>
+		<google-map center="map.center" zoom="map.zoom">
+			<markers>
+		     	<marker ng-repeat="marker in markers" coords="marker" idkey="$index"></marker>
+		    </markers>
+		</google-map>
+	</div>
+</div>
